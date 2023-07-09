@@ -65,44 +65,44 @@ const Login = () => {
         const { email, password, } = users
         if (isValid) {
 
-            // await axios.post(`${URL}/api/v1/users`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
+            await axios.post(`${URL}/api/v1/users/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
 
-            //     },
-            //     body: JSON.stringify({
-            //          email, password
-            //     })
+                },
+                body: JSON.stringify({
+                    email, password
+                })
 
-            // }).then(response => {
+            }).then(response => {
 
-            //     if (response.status === 200) {
-            //         toast.error("Created Successfully 😃!", {
-            //             position: "top-center"
-            //         });
+                if (response.status === 200) {
+                    toast.error(`${response.data.message}😃!`, {
+                        position: "top-center"
+                    });
 
-            //         setUsers({
-            //             ...users,
-            //           
-            //             email: '',
-            //      
-            //             password: '',
-            //           
-            //         });
+                    setUsers({
+                        ...users,
 
-            //     }
-            // })
-            //     .catch(error => {
+                        email: '',
 
-            //         if (error?.response?.status !== 200) {
-            //             toast.error("Create not Sucessfull 👎!", {
-            //                 position: "top-center"
-            //             });
+                        password: '',
 
-            //         }
+                    });
 
-            //     })
+                }
+            })
+                .catch(error => {
+
+                    if (error?.response?.status !== 200) {
+                        toast.error(`${error.response.data.message} 👎!`, {
+                            position: "top-center"
+                        });
+
+                    }
+
+                })
         }
 
     }

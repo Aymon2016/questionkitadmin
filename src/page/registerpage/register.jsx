@@ -93,48 +93,47 @@ const Register = () => {
         const { name, email, instituteName, ipAddress, service, status, role, password, } = users
         if (isValid) {
 
-            // await axios.post(`${URL}/api/v1/users`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
+            await axios.post(`${URL}/api/v1/users/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name, email, instituteName, ipAddress, service, status, role, password
+                })
 
-            //     },
-            //     body: JSON.stringify({
-            //         name, email, instituteName, ipAddress, service, status, role, password
-            //     })
+            }).then(response => {
 
-            // }).then(response => {
+                if (response.status === 200) {
+                    toast.error(` ${response.data.message} 😃!`, {
+                        position: "top-center"
+                    });
 
-            //     if (response.status === 200) {
-            //         toast.error("Created Successfully 😃!", {
-            //             position: "top-center"
-            //         });
+                    setUsers({
+                        ...users,
+                        name: '',
+                        email: '',
+                        instituteName: '',
+                        ipAddress: '',
+                        service: '',
+                        status: '',
+                        role: '',
+                        password: '',
+                        cpassword: ''
+                    });
 
-            //         setUsers({
-            //             ...users,
-            //             name: '',
-            //             email: '',
-            //             instituteName: '',
-            //             ipAddress: '',
-            //             service: '',
-            //             status: '',
-            //             role: '',
-            //             password: '',
-            //             cpassword: ''
-            //         });
+                }
+            })
+                .catch(error => {
 
-            //     }
-            // })
-            //     .catch(error => {
+                    if (error?.response?.status !== 200) {
+                        toast.error(` ${error.response.data.message}👎!`, {
+                            position: "top-center"
+                        });
 
-            //         if (error?.response?.status !== 200) {
-            //             toast.error("Create not Sucessfull 👎!", {
-            //                 position: "top-center"
-            //             });
+                    }
 
-            //         }
-
-            //     })
+                })
         }
 
     }
