@@ -8,7 +8,7 @@ const LogoBar = () => {
                 <img src={logo} alt="logo.png" />
             </div>
             <div className="name">Question Kit</div>
-            <div className="btn"><Link to="/logout">Logout</Link></div>
+            <div className="btn"><Link to="#">log out</Link></div>
             {/* <div className="btn"><Link to="/login">Sign Out</Link></div> */}
         </div>
     )

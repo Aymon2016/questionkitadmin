@@ -155,7 +155,7 @@ const QuestionPage = () => {
         <div className="questionContainer">
             <form method='post' className="Auth-form">
                 <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign In</h3>
+                    <h3 className="Auth-form-title">Create Question</h3>
                     <div className="form-group mt-3">
                         <label>Serial</label>
                         <input
