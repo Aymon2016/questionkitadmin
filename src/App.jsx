@@ -4,7 +4,7 @@ import Layout from "./page/Layout"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css"
-import QuestionPage from "./page/adminpage/createquestion";
+import QuestionPage from "./page/questionpage/questionpage";
 import Register from './page/registerpage/register';
 import Login from './page/registerpage/login';
 import Dashboard from './page/dashboard/dashboard';

@@ -1,0 +1,35 @@
+
+@import '../../scssFoundation/color';
+@import '../../scssFoundation/typography';
+
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0px 20px 20px 20px;
+  button {
+        margin-top: 10px;
+        display: flex;
+        stroke: none;
+        border: none;
+        text-transform: uppercase;
+        font-family: $body-font-family;
+        font-size: $h-5-font-size;
+        font-weight: $h-5-font-weight;
+        border-radius: 5px;
+        padding:5px 10px;
+        background-color: $btn-primary-bg-color;;
+        a {
+            color: $body-text-color;
+        text-decoration: none;
+        }
+        
+        cursor: pointer;
+        &:hover {
+                animation: nav-animation 1s ease;
+                background-color: $btn-primary-bg-hover;
+        }
+    }
+  
+  }
